@@ -6,9 +6,9 @@ use App\Activity;
 use App\Article;
 use App\Banner;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function index (Request $request)
     {
