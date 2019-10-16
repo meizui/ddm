@@ -13,4 +13,4 @@
 Route::get('/', 'IndexController@index');
 Route::get('/index/index', 'IndexController@index');
 Route::get('/wechat/login', 'WechatController@login');
-Route::get('/wechat/getUser', 'WechatController@getUser');
+Route::get('/wechat/userInfo', 'WechatController@userInfo');
