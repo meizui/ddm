@@ -14,9 +14,6 @@ class IndexController extends BaseController
     public function index (Request $request)
     {
 
-        $app = Factory::officialAccount(config('wechat.official_account.default'));
-        return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
-
         $banner     = Banner::where('position_id',1)->get();
 
         $article    = Article::where('status',1)
