@@ -13,24 +13,15 @@ class IndexController extends BaseController
 {
     public function index (Request $request)
     {
-
-
-        $app = Factory::officialAccount(config('wechat.official_account.default'));
-        $oauth = $app->oauth;
-        $user = $oauth->user();
-
-        dd($user);
+        $user = $request->session()->get('user');
         $banner     = Banner::where('position_id',1)->get();
-
         $article    = Article::where('status',1)
             ->orderBy('id','desc')
             ->paginate(10);
-
         $activity = Activity::where('status',1)
             ->limit(4)
             ->orderBy('created_at','desc')
             ->get();
-
         return view('client.index',[
             'article'=>$article,
             'banner'=>$banner,
