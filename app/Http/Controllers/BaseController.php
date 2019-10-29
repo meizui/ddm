@@ -17,6 +17,7 @@ class BaseController extends Controller
             $app = Factory::officialAccount(config('wechat.official_account.default'));
             return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
         }
+        echo 1;
     }
 
 }
