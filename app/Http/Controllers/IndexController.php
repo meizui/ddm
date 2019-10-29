@@ -14,6 +14,8 @@ class IndexController extends BaseController
     public function index (Request $request)
     {
         $user = $request->session()->get('user');
+        $id = $request->session()->get('id');
+        var_dump($id);
         var_dump($user);
         $banner     = Banner::where('position_id',1)->get();
         $article    = Article::where('status',1)
