@@ -1,60 +1,221 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html lang="zxx">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>订订喵</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-
-    </style>
+    <meta charset="UTF-8">
+    <title>订猫</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <link rel="stylesheet" href="{{ asset('wechat/css/materialize.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/icons/css/line-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/icons/css/line-awesome-font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/owl.transitions.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/fakeLoader.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('/wechat/css/style.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/wechat/img/favicon.png') }}">
 </head>
 <body>
-<div class="flex-center position-ref full-height">
 
+<!-- loader -->
+<div id="fakeLoader"></div>
+<!-- end loader -->
 
-    <div class="content">
+<!-- navbar top -->
+<div class="navbar-top">
+    <!-- site brand	 -->
+    <div class="site-brand">
+        <a href="index.html"><h1><span>订</span>猫</h1></a>
+    </div>
+</div>
+<!-- end navbar top -->
 
+<!-- side nav right-->
+<div class="side-nav-panel-right">
+    <ul id="slide-out-right" class="side-nav side-nav-panel collapsible">
+        <li class="profil">
+            <img src="img/profile2.jpg" alt="">
+            <h2>John Doe</h2>
+        </li>
+        <li><a href="setting.html"><i class="fa fa-cog"></i>Settings</a></li>
+        <li><a href="about-us.html"><i class="fa fa-user"></i>About Us</a></li>
+        <li><a href="contact.html"><i class="fa fa-envelope-o"></i>Contact Us</a></li>
+        <li><a href="login.html"><i class="fa fa-sign-in"></i>Login</a></li>
+        <li><a href="register.html"><i class="fa fa-user-plus"></i>Register</a></li>
+    </ul>
+</div>
+<!-- end side nav right-->
 
-
-        <div class="title m-b-md">
-            @foreach($banner as $b)
-                <p><img src="{{$b->img}}" alt=""></p>
-                <a href="http://{{ $b->route_url }}" >{{ $b->title }}</a>
-            @endforeach
+<!-- navbar bottom -->
+<div class="navbar-bottom">
+    <div class="row">
+        <div class="col s2">
+            <a href="index.html"><i class="fa fa-home icon-th-large"></i></a>
+        </div>
+        <div class="col s3">
+            <a href="shop.html"><i class="fa fa-dot-circle-o"></i></a>
+        </div>
+        <div class="col s2">
+            <a href="#animatedModal2" id="nav-menu"><i class="fa fa-heart"></i></a>
+        </div>
+        <div class="col s2">
+            <a href="contact.html"><i class="fa fa-comment-o"></i></a>
+        </div>
+        <div class="col s3">
+            <a href="profile.html"><i class="fa fa-user"></i></a>
         </div>
 
+    </div>
+</div>
+<!-- end navbar bottom -->
 
-        <div class="title m-b-md">
-            @foreach($article as $a)
-                <p><img src="{{ $a->img }}" alt=""></p>
-                <div class="title"> <span>{{ $a->title }}</span></div>
+
+
+<!-- slider -->
+<div class="slider">
+
+    <ul class="slides">
+        @foreach( $banner as $b)
+            <li>
+                <img src="{{$b->img}}" alt="">
+                <div class="caption slider-content">
+                    <h2>{{ $b->title }}</h2>
+                    <h4>{{ $b->title }}</h4>
+                    <a class="button-default" href="http://{{ $b->route_url }}">了解更多</a>
+                </div>
+            </li>
+        @endforeach
+    </ul>
+
+</div>
+<!-- end slider -->
+
+
+<!-- testimonial -->
+<div class="section testimonial bg-second">
+    <div class="container">
+        <div id="owl-testimonial">
+            @foreach( $article as $a)
+            <div class="item">
+                <i class="fa fa-quote-left"></i>
+                <p><a href="{{url('/article/info/id/')}}{{$a->id}}">{{$a->title}}</a></p>
+                <h6>{{$a->from}}</h6>
+
+            </div>
             @endforeach
-        </div>
-
-
-        <div class="title m-b-md">
-            @foreach($activity as $v)
-                <p><img src="{{ $v->img }}" alt=""></p>
-                <span>{{ $v->title }}</span>
-            @endforeach
-        </div>
-
-
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
         </div>
     </div>
 </div>
+<!-- end testimonial -->
+
+
+
+<!-- features -->
+<div class="section features bg-second">
+
+    <div class="container"><h7><span>分享</span>有礼</h7></div>
+    <div class="container">
+        <div class="row">
+            @foreach($activity as $av)
+                <div class="col s6">
+                    <div class="content">
+                        <a href="{{ $av->img }}" data-effect="mfp-newspaper" class="image-popup"><img class="responsive-img" src="{{ $av->img }}" alt="sample image"></a>
+                        <div class="col s6"></div>
+                        <h5>{{ $av->title }}</h5>
+                        <p>123123</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+<!-- end features -->
+
+
+
+<!-- features -->
+<div class="section features bg-second">
+    <div class="container"><h7><span>强烈</span>推荐</h7></div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="content">
+                    <img src="img/gallery1.jpg"  class="responsive-img">
+                    <p align="left">这里是简介...</p>
+                    <h6 align="left"><a href="">臭豆腐</a></h6>
+                    <div class="price " align="left">价格:<span>$28</span><span>浏览:</span><span>12人</span></div>
+                    <button class="btn button-default">购买</button>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="content">
+                    <img src="img/gallery1.jpg"  class="responsive-img">
+                    <p align="left">这里是简介...</p>
+                    <h6 align="left"><a href="">臭豆腐</a></h6>
+                    <div class="price " align="left">价格:<span>$28</span><span>浏览:</span><span>12人</span></div>
+                    <button class="btn button-default">购买</button>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="content">
+                    <img src="img/gallery1.jpg"  class="responsive-img">
+                    <p align="left">这里是简介...</p>
+                    <h6 align="left"><a href="">臭豆腐</a></h6>
+                    <div class="price " align="left">价格:<span>$28</span><span>浏览:</span><span>12人</span></div>
+                    <button class="btn button-default">购买</button>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="content">
+                    <img src="img/gallery1.jpg"  class="responsive-img">
+                    <p align="left">这里是简介...</p>
+                    <h6 align="left"><a href="">臭豆腐</a></h6>
+                    <div class="price " align="left">价格:<span>$28</span><span>浏览:</span><span>12人</span></div>
+                    <button class="btn button-default">购买</button>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="content">
+                    <img src="img/gallery1.jpg"  class="responsive-img">
+                    <p align="left">这里是简介...</p>
+                    <h6 align="left"><a href="">臭豆腐</a></h6>
+                    <div class="price " align="left">价格:<span>$28</span><span>浏览:</span><span>12人</span></div>
+                    <button class="btn button-default">购买</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="about-us-foot">
+            <h2><span>兄</span>弟</h2>
+            <p>拉到底了!</p>
+        </div>
+    </div>
+</div>
+<!-- end footer -->
+
+</head>
+<!-- scripts -->
+<script src=""></script>
+<script src="{{ asset('/wechat/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/fakeLoader.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/animatedModal.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/jquery.filterizr.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('/wechat/js/portfolio.js') }}"></script>
+<script src="{{ asset('/wechat/js/main.j') }}s"></script>
+
+
 </body>
 </html>

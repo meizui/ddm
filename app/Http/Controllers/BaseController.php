@@ -11,13 +11,13 @@ class BaseController extends Controller
     //  获取微信信息
     public function __construct(Request $request)
     {
-        $user = $request->session()->get('user',null);
 
-        if(!isset($user)) {
-            $app = Factory::officialAccount(config('wechat.official_account.default'));
-            return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
-        }
-        echo 1;
+        session('user_info',['id'=>123]);
+//        if(!isset($user)) {
+//            $app = Factory::officialAccount(config('wechat.official_account.default'));
+//            return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
+//        }
+
     }
 
 }

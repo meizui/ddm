@@ -10,7 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'IndexController@index');
-Route::get('/index/index', 'IndexController@index');
-Route::get('/wechat/login', 'WechatController@login');
-Route::get('/wechat/userInfo', 'WechatController@userInfo');
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'IndexController@index');
+    Route::get('/index/index', 'IndexController@index');
+    Route::get('/wechat/login', 'WechatController@login');
+
+});
+
+Route::any('/wechat/userInfo', 'WechatController@userInfo');
