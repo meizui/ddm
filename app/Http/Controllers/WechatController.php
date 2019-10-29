@@ -10,6 +10,7 @@ class WechatController extends Controller
 {
     public function getUser(Request $request)
     {
+        echo 1;
         $app = Factory::officialAccount(config('wechat.official_account.default'));
         $oauth = $app->oauth;
         $user = $oauth->user();
@@ -19,6 +20,7 @@ class WechatController extends Controller
 
     public function userInfo(Request $request)
     {
+        echo 2;
         $app = Factory::officialAccount(config('wechat.official_account.default'));
         $oauth = $app->oauth;
         $user = $oauth->user();
