@@ -13,8 +13,7 @@ class WechatController extends Controller
         $app = Factory::officialAccount(config('wechat.official_account.default'));
         $oauth = $app->oauth;
         $user = $oauth->user();
-        var_dump($user);
-        $request->session()->put('user',123);
+        $request->session()->put('user',$user);
     }
 }
 
