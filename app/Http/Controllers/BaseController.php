@@ -11,11 +11,8 @@ class BaseController extends Controller
     //  获取微信信息
     public function __construct(Request $request)
     {
-        $user = $request->session()->get('user');
-        var_dump($user);
-        echo 222;
-        dd($user);
-        if(!isset($user) || empty($user)) {
+        $user = $request->session()->get('user',null);
+        if(!isset($user)) {
             echo 2;
             $app = Factory::officialAccount(config('wechat.official_account.default'));
             return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
