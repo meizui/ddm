@@ -13,6 +13,15 @@ class IndexController extends BaseController
 {
     public function index (Request $request)
     {
+
+
+        $app = Factory::officialAccount(config('wechat.official_account.default'));
+        $oauth = $app->oauth;
+        $user = $oauth->user();
+        var_dump($user);
+        $request->session()->put('user',123);
+
+        
         dd($request->session()->get('user'));
         $banner     = Banner::where('position_id',1)->get();
 
