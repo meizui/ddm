@@ -12,6 +12,7 @@ class BaseController extends Controller
     //  获取微信信息
     public function __construct(Request $request)
     {
+        session(['logined'=>false]);
         if (!session('logined')){
             $wechatUser = session('wechat.oauth_user.default');
             $user = User::where('openid',$wechatUser->original['openid'])->first();
