@@ -12,8 +12,8 @@ class UserController extends Controller
 
     public function index (Request $request)
     {
-        $user = User::find(1);
-        return view('client.index',['user'=>$user]);
+
+        return view('client.index');
     }
 
 }

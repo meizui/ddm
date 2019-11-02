@@ -9,7 +9,7 @@ use App\User;
 
 class BaseController extends Controller
 {
-    //  获取微信信息
+    //  微信信息入库
     public function __construct(Request $request)
     {
         session(['logined'=>false]);
