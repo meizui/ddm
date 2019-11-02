@@ -14,7 +14,8 @@ class BaseController extends Controller
     {
 
         $user = session('wechat.oauth_user.default');
-        dd($user->original);
+
+        dd($user->original['openid']);
 //        $res = User::firstOrCreate(['openid'=>$user->id],[
 //            'openid'=>$user->openid,
 //            'nickname'=>$user->openid,
