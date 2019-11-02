@@ -12,18 +12,18 @@ class BaseController extends Controller
     //  获取微信信息
     public function __construct(Request $request)
     {
-
         $user = session('wechat.oauth_user.default');
-
-        dd($user->original['openid']);
-//        $res = User::firstOrCreate(['openid'=>$user->id],[
-//            'openid'=>$user->openid,
-//            'nickname'=>$user->openid,
-//            'name'=>$user->name,
-//            'avatar'=>$user->avatar,
-//        ]);
-//
-//        dd($user);
+        $res = User::firstOrCreate(['openid'=>$user->original['openid']],[
+            'openid'=>$user->original['openid'],
+            'nickname'=>$user->original['nickname'],
+            'name'=>$user->original['nickname'],
+            'avatar'=>$user->original['headimgurl'],
+            'avatar'=>$user->original['headimgurl'],
+            'sex'=>$user->original['sex'],
+            'province'=>$user->original['province'],
+            'city'=>$user->original['city'],
+        ]);
+        dd($res);
 
     }
 
