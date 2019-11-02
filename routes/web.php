@@ -25,10 +25,7 @@
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/', 'IndexController@index');
     Route::get('/index/index', 'IndexController@index');
-    Route::get('/user/index', 'IndexController@index');
-    Route::get('/shop/index', 'IndexController@index');
-    Route::get('/', 'IndexController@index');
-    Route::get('/', 'IndexController@index');
-    Route::get('/', 'IndexController@index');
-
+    Route::get('/user/index', 'UserController@index');
+    Route::get('/shop/index', 'ShopController@index');
+    Route::get('/join/index', 'JoinController@index');
 });
