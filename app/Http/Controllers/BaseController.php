@@ -15,6 +15,7 @@ class BaseController extends Controller
         session(['logined'=>false]);
         if (!session('logined')){
             $wechatUser = session('wechat.oauth_user.default');
+            dd($wechatUser);
             $user = User::where('openid',$wechatUser->original['openid'])->first();
             if(!$user) {
                 $user = new User();
