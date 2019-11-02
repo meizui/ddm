@@ -13,11 +13,12 @@ class BaseController extends Controller
     public function __construct(Request $request)
     {
         $user = session('wechat.oauth_user.default');
+        dd($user->original['name']);
+
         $res = User::firstOrCreate(['openid'=>$user->original['openid']],[
             'openid'=>$user->original['openid'],
             'nickname'=>$user->original['nickname'],
-            'name'=>$user->original['nickname'],
-            'avatar'=>$user->original['headimgurl'],
+            'name'=>$user->original['name'],
             'avatar'=>$user->original['headimgurl'],
             'sex'=>$user->original['sex'],
             'province'=>$user->original['province'],
