@@ -14,8 +14,6 @@ class IndexController extends BaseController
     public function index (Request $request)
     {
 
-        $user = session('wechat.oauth_user.default'); // 拿到授权用户资料
-        dd($user);
 
         $banner     = Banner::where('position_id',1)->get();
         $article    = Article::where('status',1)
