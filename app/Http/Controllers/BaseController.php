@@ -14,11 +14,14 @@ class BaseController extends Controller
     {
         session(['logined'=>false]);
         if (!session('logined')){
+
             $wechatUser = session('wechat.oauth_user.default');
+
             if (!$wechatUser) {
                 header('location:/user');
             }
             $user = User::where('openid',$wechatUser->original['openid'])->first();
+
             if(!$user) {
                 $user = new User();
                 $user->openid = $wechatUser->original['openid'];
@@ -30,6 +33,7 @@ class BaseController extends Controller
             $user->province = $wechatUser->original['province'];
             $user->city = $wechatUser->original['city'];
             $user->save();
+
             session(['logined'=>true]);
         }
     }
