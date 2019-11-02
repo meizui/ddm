@@ -20,3 +20,4 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::any('/wechat/userInfo', 'WechatController@userInfo');
+Route::any('/wechat', 'WeChatController@serve');

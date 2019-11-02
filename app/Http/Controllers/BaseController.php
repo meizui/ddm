@@ -12,7 +12,7 @@ class BaseController extends Controller
     public function __construct(Request $request)
     {
         $wechatUser = session('wechat_user');
-        if(!isset($wechatUser)) {
+        if(empty($wechatUser)) {
             $app = Factory::officialAccount(config('wechat.official_account.default'));
             return  $response = $app->oauth->scopes(['snsapi_userinfo'])->redirect();
         }
