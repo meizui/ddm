@@ -13,6 +13,7 @@ class IndexController extends BaseController
 {
     public function index (Request $request)
     {
+        dd($request->session()->all());
         $banner     = Banner::where('position_id',1)->get();
         $article    = Article::where('status',1)
             ->orderBy('id','desc')
