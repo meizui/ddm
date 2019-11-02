@@ -31,7 +31,7 @@
 <div class="navbar-top">
     <!-- site brand	 -->
     <div class="site-brand">
-        <a href="index.html"><h1><span>订</span>猫</h1></a>
+        <a href="/"><h1><span>订</span>猫</h1></a>
     </div>
 </div>
 <!-- end navbar top -->
@@ -47,17 +47,17 @@
             <a href="/"><i class="fa fa-home icon-th-large"></i></a>
         </div>
         <div class="col s3">
-            <a href="shop.html"><i class="fa fa-dot-circle-o"></i></a>
+            <a href="{{ url("/shop/index") }}"><i class="fa fa-dot-circle-o"></i></a>
         </div>
         <div class="col s2">
-            <a href="#animatedModal2" id="nav-menu"><i class="fa fa-plus"></i></a>
+            <a href="{{ url("/join/index") }}" id="nav-menu"><i class="fa fa-plus"></i></a>
         </div>
         <div class="col s2">
-            <a href="contact.html"><i class="fa fa-comment-o"></i></a>
+            <a href="{{ url("/good/index") }}"><i class="fa fa-comment-o"></i></a>
         </div>
         <div class="col s3">
-            <a href="profile.html"><i class="fa fa-user"></i></a>
-        </div>
+            <a href="{{ url("/user/index") }}"><i class="fa fa-user"></i></a>
+        </div>/
 
     </div>
 </div>
