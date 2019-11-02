@@ -25,8 +25,10 @@
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/', 'IndexController@index');
     Route::get('/index/index', 'IndexController@index');
-    Route::get('/wechat/login', 'WechatController@login');
-    Route::get('/user', function () {
+    Route::get('/user/index', 'IndexController@index');
+    Route::get('/shop/index', 'IndexController@index');
+    Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index');
+    Route::get('/', 'IndexController@index');
 
-    });
 });
