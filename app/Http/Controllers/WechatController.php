@@ -10,10 +10,10 @@ class WechatController extends Controller
 {
     public function userInfo(Request $request)
     {
-        $app = Factory::officialAccount(config('wechat.official_account.default'));
-        $oauth = $app->oauth;
-        $user = $oauth->user();
-        session(['wechat_user'=>$user->toArray()]);
+        $request->url();
+        session('wechat.oauth_user.default'); // 拿到授权用户资料
+        header('Location: '.$url);;
+
     }
 
     public function serve ()

@@ -22,13 +22,12 @@
 //Route::any('/wechat/userInfo', 'WechatController@userInfo');
 //Route::any('/wechat', 'WeChatController@serve');
 
+
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/user', function () {
-       session('wechat.oauth_user.default'); // 拿到授权用户资料
-    });
+    Route::get('/user', 'WechatController@userInfo');    
     Route::get('/', 'IndexController@index');
     Route::get('/index/index', 'IndexController@index');
-    Route::get('/user/index', 'UserController@index');
+    Route::get('/user/index', 'UserController@index');			
     Route::get('/shop/index', 'ShopController@index');
     Route::get('/join/index', 'JoinController@index');
 });

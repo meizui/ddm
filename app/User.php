@@ -24,6 +24,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-
+        'updated_at','created_at'
     ];
 }
