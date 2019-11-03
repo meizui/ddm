@@ -10,9 +10,9 @@ class WechatController extends Controller
 {
     public function userInfo(Request $request)
     {
-        $request->url();
+        $url = $request->url();
         session('wechat.oauth_user.default'); // 拿到授权用户资料
-        header('Location: '.$url);;
+        header('Location: ' . $url);;
 
     }
 

@@ -18,7 +18,7 @@ class BaseController extends Controller
             $wechatUser = session('wechat.oauth_user.default');
 
             if (!$wechatUser) {
-                header('location:/user');
+              return header('location:/user');
             }
             $user = User::where('openid',$wechatUser->original['openid'])->first();
 
