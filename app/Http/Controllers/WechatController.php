@@ -11,12 +11,8 @@ class WechatController extends Controller
     public function userInfo(Request $request)
     {
         $url = $request->url();
-
-        dd($url);
-
         session('wechat.oauth_user.default'); // 拿到授权用户资料
         header('Location: ' . $url);;
-
     }
 
     public function serve ()
