@@ -30,6 +30,7 @@ class BaseController extends Controller
             $user->province = $wechatUser->original['province'];
             $user->city = $wechatUser->original['city'];
             $user->save();
+            session(['user_id'=>$user->id]);
             session(['logined'=>true]);
         }
     }
