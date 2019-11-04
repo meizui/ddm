@@ -50,8 +50,6 @@ class JoinController extends BaseController
         $model->area_id = $request->input('area_id');
         $model->address = $request->input('address');
         $model->img = $request->input('img');
-
-        dd(session('user_id'));
         $model->user_id = session('user_id',1);
         if ($model->save()) {
             $activity = Activity::with(['publishUser','area'])->find($model->id);
