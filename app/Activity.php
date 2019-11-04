@@ -11,4 +11,9 @@ class Activity extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function publishUser ()
+    {
+        return $this->hasOne('App\User','id','user_id');
+    }
 }

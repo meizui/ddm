@@ -16,6 +16,8 @@ class IndexController extends BaseController
 
 
         $banner     = Banner::where('position_id',1)->get();
+
+//        dd($banner);
         $article    = Article::where('status',1)
             ->orderBy('id','desc')
             ->paginate(10);
@@ -29,5 +31,12 @@ class IndexController extends BaseController
             'banner'=>$banner,
             'activity'=>$activity
         ]);
+    }
+
+
+    public function activityInfo(Request $request,$id)
+    {
+        $activity = Activity::with(['publishUser'])->find($id);
+        return view('client.activityInfo',['activity'=>$activity]);
     }
 }

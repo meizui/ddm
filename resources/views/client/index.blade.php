@@ -67,7 +67,6 @@
 
 <!-- slider -->
 <div class="slider">
-
     <ul class="slides">
         @foreach( $banner as $b)
             <li>
@@ -80,7 +79,6 @@
             </li>
         @endforeach
     </ul>
-
 </div>
 <!-- end slider -->
 
@@ -90,12 +88,11 @@
     <div class="container">
         <div id="owl-testimonial">
             @foreach( $article as $a)
-            <div class="item">
-                <i class="fa fa-quote-left"></i>
-                <p><a href="{{url('/article/info/id/')}}{{$a->id}}">{{$a->title}}</a></p>
-                <h6>{{$a->from}}</h6>
-
-            </div>
+                <div class="item">
+                    <i class="fa fa-quote-left"></i>
+                    <p><a href="{{ url('/article/info/id/') }}{{$a->id}}">{{$a->title}}</a></p>
+                    <h6>{{$a->from}}</h6>
+                </div>
             @endforeach
         </div>
     </div>
@@ -106,17 +103,16 @@
 
 <!-- features -->
 <div class="section features bg-second">
-
     <div class="container"><h7><span>分享</span>有礼</h7></div>
     <div class="container">
         <div class="row">
             @foreach($activity as $av)
                 <div class="col s6">
                     <div class="content">
-                        <a href="{{ $av->img }}" data-effect="mfp-newspaper" class="image-popup"><img class="responsive-img" src="{{ $av->img }}" alt="sample image"></a>
+                        <a href="{{ url("/index/activityInfo/{$av->id}") }}" data-effect="mfp-newspaper" class="image-popup"><img class="responsive-img" src="{{ $av->img }}" alt="sample image"></a>
                         <div class="col s6"></div>
                         <h5>{{ $av->title }}</h5>
-                        <p>123123</p>
+                        <p>分享:{{ $av->share_num }}积分</p>
                     </div>
                 </div>
             @endforeach

@@ -9,6 +9,6 @@ class JoinController extends BaseController
 {
     public function index(Request $request)
     {
-
+        return view('client.addActivity');
     }
 }
