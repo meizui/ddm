@@ -24,16 +24,21 @@
 
 
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('/user', 'WechatController@userInfo');    
-//    Route::get('/', 'IndexController@index');
+
+
+
+    Route::get('/', 'IndexController@index');
     Route::get('/index/index', 'IndexController@index');
     Route::get('/user/index', 'UserController@index');			
     Route::get('/shop/index', 'ShopController@index');
     Route::get('/join/index', 'JoinController@index');
+
+
+    Route::get('/', 'IndexController@index');
+    Route::get('/index/activityInfo/{id}', 'IndexController@activityInfo');
+    Route::get('/index/activityList', 'IndexController@activityList');
+//    Route::get('/join/index', 'JoinController@index');
+    Route::post('/join/addJoin', 'JoinController@addJoin');
+    Route::get('/user', 'WechatController@userInfo');
 });
 
-Route::get('/', 'IndexController@index');
-Route::get('/index/activityInfo/{id}', 'IndexController@activityInfo');
-Route::get('/index/activityList', 'IndexController@activityList');
-Route::get('/join/index', 'JoinController@index');
-Route::post('/join/addJoin', 'JoinController@addJoin');
