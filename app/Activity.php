@@ -16,4 +16,9 @@ class Activity extends Model
     {
         return $this->hasOne('App\User','id','user_id');
     }
+
+    public function area()
+    {
+        return $this->hasOne('App\Area','id','area_id');
+    }
 }

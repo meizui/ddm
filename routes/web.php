@@ -34,4 +34,6 @@ Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 
 Route::get('/', 'IndexController@index');
 Route::get('/index/activityInfo/{id}', 'IndexController@activityInfo');
+Route::get('/index/activityList', 'IndexController@activityList');
 Route::get('/join/index', 'JoinController@index');
+Route::post('/join/addJoin', 'JoinController@addJoin');

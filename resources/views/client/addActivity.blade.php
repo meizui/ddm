@@ -42,7 +42,8 @@
         <div class="contact-us">
             <div class="row">
                 <div class="col s12">
-                    <form action="{{ url('/activity/add') }}" class="contact-form" id="contact-form" method="post">
+                    <form action="{{ url('/join/addJoin') }}" class="contact-form" id="contact-form" method="post">
+                        {{ csrf_field() }}
                         <div class="form-group" id="name-field">
                             <input type="text" class="validate" id="form-name" name="title" placeholder="活动标题" required>
                         </div>
@@ -53,7 +54,7 @@
                             <input type="text" class="validate" id="form-subject" name="end_at" placeholder="活动结束时间" required>
                         </div>
                         <div class="form-group" id="address-field">
-                            <input type="text" class="validate" id="form-subject" name="end_at" placeholder="活动地址" required>
+                            <input type="text" class="validate" id="form-subject" name="address" placeholder="活动地址" required>
                         </div>
                         <div class="form-group">
                             <select class='picker__list-item--selected' name="area_id" id="area_id"  placeholder="活动区域">
@@ -68,10 +69,14 @@
                             </select>
                         </div>
                         <div class="form-group" id="share-field">
-                            <input type="text" class="validate" id="form-subject" name="share-num" placeholder="分享总金额(单位分)" required>
+                            <input type="text" class="validate" id="form-subject" name="share_num" placeholder="分享总金额(单位分)" required>
                         </div>
+
                         <div class="form-group" id="share-field">
                             <input type="text" class="validate" id="form-subject" name="times" placeholder="预计分享次数" required>
+                        </div>
+                        <div class="form-group" id="share-field">
+                            <input type="text" class="validate" id="form-subject" name="img" placeholder="图片地址" required>
                         </div>
                         <div class="form-group" id="message-field">
                             <textarea name="content" id="form-message" cols="30" rows="10" class="materialize-textarea" placeholder="活动内容" required></textarea>

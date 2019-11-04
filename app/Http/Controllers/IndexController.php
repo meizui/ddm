@@ -33,6 +33,19 @@ class IndexController extends BaseController
         ]);
     }
 
+    public function activityList (Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $list = Activity::with(['publishUser','area'])
+                ->where('status',1)
+                ->paginate($request->input('limit'));
+            if ($list) {
+                return json_encode(['code'=>200,'msg'=>'ok','data'=>$list]);
+            }
+            return json_encode(['code'=>400,'msg'=>'nok','data'=>[]]);
+        }
+        return view('client.activityList');
+    }
 
     public function activityInfo(Request $request,$id)
     {
